@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
-//@PropertySource("classpath:application-default.properties")
+@PropertySource("classpath:application-default.properties")
 @EnableAutoConfiguration(exclude={ 
 		 org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class 
 		 })

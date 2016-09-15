@@ -1,6 +1,7 @@
 package com.hack.repositories.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
@@ -43,13 +44,13 @@ public class PowerGenData implements Serializable {
 	@Column(name = "status")
 	private boolean status;
 
-	@Column(name = "temperature")
-	private Long temperature;
+	@Column(name = "temperature", precision=15, scale=7)
+	private BigDecimal temperature;
 
-	@Column(name = "voltage")
-	private Long voltage;
+	@Column(name = "voltage",  precision=15, scale=7)
+	private BigDecimal voltage;
 
-	@Column(name = "inserted_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "inserted_date", columnDefinition = "timestamp DEFAULT current_timestamp")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date insertedDate;
 
@@ -77,19 +78,19 @@ public class PowerGenData implements Serializable {
 		this.status = status;
 	}
 
-	public Long getTemperature() {
+	public BigDecimal getTemperature() {
 		return temperature;
 	}
 
-	public void setTemperature(Long temperature) {
+	public void setTemperature(BigDecimal temperature) {
 		this.temperature = temperature;
 	}
 
-	public Long getVoltage() {
+	public BigDecimal getVoltage() {
 		return voltage;
 	}
 
-	public void setVoltage(Long voltage) {
+	public void setVoltage(BigDecimal voltage) {
 		this.voltage = voltage;
 	}
 
@@ -102,12 +103,12 @@ public class PowerGenData implements Serializable {
 	}
 
 	public Date getInsertedDate() {
-		if (insertedDate == null)
-			insertedDate = new Date();
 		return insertedDate;
 	}
 
 	public void setInsertedDate(Date insertedDate) {
+		if (insertedDate == null)
+			insertedDate = new Date();
 		this.insertedDate = insertedDate;
 	}
 
