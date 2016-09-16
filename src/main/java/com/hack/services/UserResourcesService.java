@@ -26,10 +26,6 @@ public class UserResourcesService {
 		return userResourcesServiceIfc.saveAndFlush(input);
 	}
 
-//	public List<PowerGenData> listQuestion() {
-//		TypedQuery<PowerGenData> query = em.createQuery("select u from Resources u", PowerGenData.class);
-//		return query.getResultList();
-//	}
 	public List<PowerGenData> findByTurbine(String type) {
 		return userResourcesServiceIfc.findByTurbine(type);
 	}
@@ -40,9 +36,8 @@ public class UserResourcesService {
 	public List<PowerGenData> findByTemperatureBetweenAndInsertedTimeDateBetween(BigDecimal lower, BigDecimal upper, Date from, Date to){
 		return userResourcesServiceIfc.findByTemperatureBetweenAndInsertedDateDateBetween(lower, upper, from, to);
 	}
-	public List<PowerGenData> findByVoltageBetweenAndInsertedTimeDateBetween(Long lower, Long upper, Date from, Date to){
-		return userResourcesServiceIfc.findByVoltageBetweenAndInsertedDateBetween(BigDecimal.valueOf(lower), BigDecimal.valueOf(upper), from, to)
-				;
+	public List<PowerGenData> findByVoltageBetweenAndInsertedTimeDateBetween(BigDecimal lower, BigDecimal upper, Date from, Date to){
+		return userResourcesServiceIfc.findByVoltageBetweenAndInsertedDateBetween(lower, upper, from, to);
 	}
 	public List<PowerGenData> findByInsertedTimeDateBetween(Date from, Date to){
 		return userResourcesServiceIfc.findByInsertedDateBetween(from, to);

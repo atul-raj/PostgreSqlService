@@ -67,19 +67,26 @@ public class UserResourcesCtrl {
 	}
 	
 	@RequestMapping("/vol/{lower}/{upper}/date/{from}/{to}")
-	public List<PowerGenData> findByVoltageBetweenAndInsertedTimeDateBetween(@PathVariable Long lower,@PathVariable Long upper,@PathVariable Date from,@PathVariable Date to){
+	public List<PowerGenData> findByVoltageBetweenAndInsertedTimeDateBetween(@PathVariable BigDecimal lower,@PathVariable BigDecimal upper,@PathVariable Date from,@PathVariable Date to){
 		return userResourcesService.findByVoltageBetweenAndInsertedTimeDateBetween(lower, upper, from, to);
 	}
 	
 	@RequestMapping("/date/{from}/{to}")
-	public List<PowerGenData> findByInsertedTimeDateBetween(Date from, Date to){
+	public List<PowerGenData> findByInsertedTimeDateBetween(@PathVariable Date from, @PathVariable Date to){
 		return userResourcesService.findByInsertedTimeDateBetween(from, to);
 	}
 	
-	
-	@RequestMapping("/", RequestMethod.)
-	public List<PowerGenData> findByInsertedTimeDateBetween(Date from, Date to){
+	@RequestMapping("/date/current/")
+	public List<PowerGenData> findCurrentTimeDateBetween(){
+		Date from;
+		Date to = new Date();
+		from = new Date(new Date().getTime() - (1000*60*30));
 		return userResourcesService.findByInsertedTimeDateBetween(from, to);
+	}
+	
+	@RequestMapping(name="/", method=RequestMethod.DELETE)
+	public void deleteById(Long id){
+		userResourcesServiceIfc.delete(id);
 	}
 	
 }

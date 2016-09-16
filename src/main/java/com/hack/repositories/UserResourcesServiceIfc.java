@@ -24,5 +24,6 @@ public interface UserResourcesServiceIfc extends JpaRepository<PowerGenData, Lon
 	@Query(value="select * from powergen_data  where voltage between ?1 AND ?2 and inserted_date between ?3 AND ?4", nativeQuery = true)
 	List<PowerGenData> findByVoltageBetweenAndInsertedDateBetween(BigDecimal lower, BigDecimal upper, Date from, Date to);
 	
+	@Query(value="select * from powergen_data  where inserted_date between ?1 AND ?2", nativeQuery = true)
 	List<PowerGenData> findByInsertedDateBetween(Date from, Date to);
 }
