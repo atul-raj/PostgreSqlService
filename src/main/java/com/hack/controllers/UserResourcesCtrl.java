@@ -76,4 +76,10 @@ public class UserResourcesCtrl {
 		return userResourcesService.findByInsertedTimeDateBetween(from, to);
 	}
 	
+	
+	@RequestMapping("/", RequestMethod.)
+	public List<PowerGenData> findByInsertedTimeDateBetween(Date from, Date to){
+		return userResourcesService.findByInsertedTimeDateBetween(from, to);
+	}
+	
 }

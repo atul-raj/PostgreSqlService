@@ -44,10 +44,10 @@ public class PowerGenData implements Serializable {
 	@Column(name = "status")
 	private boolean status;
 
-	@Column(name = "temperature", precision=15, scale=7)
+	@Column(name = "temperature", precision=5, scale=2)
 	private BigDecimal temperature;
 
-	@Column(name = "voltage",  precision=15, scale=7)
+	@Column(name = "voltage",  precision=5, scale=2)
 	private BigDecimal voltage;
 
 	@Column(name = "inserted_date", columnDefinition = "timestamp DEFAULT current_timestamp")
