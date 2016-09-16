@@ -84,8 +84,8 @@ public class UserResourcesCtrl {
 		return userResourcesService.findByInsertedTimeDateBetween(from, to);
 	}
 	
-	@RequestMapping(name="/", method=RequestMethod.DELETE)
-	public void deleteById(Long id){
+	@RequestMapping(name="/{id}", method=RequestMethod.DELETE)
+	public void deleteById(@PathVariable Long id){
 		userResourcesServiceIfc.delete(id);
 	}
 	
