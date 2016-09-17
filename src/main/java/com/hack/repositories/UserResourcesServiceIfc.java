@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hack.repositories.entities.ChartData;
 import com.hack.repositories.entities.PowerGenData;
 
 @Repository
@@ -26,4 +27,12 @@ public interface UserResourcesServiceIfc extends JpaRepository<PowerGenData, Lon
 	
 	@Query(value="select * from powergen_data  where inserted_date between ?1 AND ?2", nativeQuery = true)
 	List<PowerGenData> findByInsertedDateBetween(Date from, Date to);
+	
+	@Query(value="select * from powergen_data  where site = ?1 AND turbine = ?2 AND inserted_date between ?3 AND ?4", nativeQuery = true)
+	List<PowerGenData> getTurbineData(String site,String turbine,Date from, Date to);
+	
+	@Query(value="select * from powergen_data  where site = ?1  AND inserted_date between ?2 AND ?3", nativeQuery = true)
+	List<PowerGenData> getSiteData(String site,Date from, Date to);
+	
+	
 }
